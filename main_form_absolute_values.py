@@ -115,5 +115,5 @@ for i in np.arange(n):
     dimensions.append(f.getPhysicalDimension(i))
 
 # Create .csv
-print('Creation of .csv.')
-signalsToCsvs('Test_Proband.EDF', labels, signals, sampleRates, dimensions)
+print('Creation of .csv.asdfadsfadsf')
+signalsToCsvs('4a35ced6-dd19-43f8-be74-59a854f87db7.EDF', labels, signals, sampleRates, dimensions)
