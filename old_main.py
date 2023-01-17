@@ -27,13 +27,13 @@ def signalsToCsvs(filename, labels, signals, sampleRates, dimensions, stepwidth)
                     (separator, labels[i], dimensions[i]))
             # Prepare time values
             if (args.timeAbsolute):
-                #print('A')
+                print('A')
                 time = startTime
                 delta = datetime.timedelta(seconds=1.0/sampleRates[i])
             else:
-                #print('B')
+                print('B')
                 time = 0
-                delta = stepwidth[i]# 1.0/sampleRates[i]    #ausgetauscht, damit in der Datei nachher die tatsächliche Zeit steht
+                delta = stepwidth[i]# 1.0/sampleRates[i]
                 print(delta)
                 print(filepath)
             # Samples saving
@@ -50,7 +50,7 @@ def signalsToCsvs(filename, labels, signals, sampleRates, dimensions, stepwidth)
                     text = '%2.4f%c' % (time, separator)
                 time += delta
                 # Sample to text
-                text += str(sample)    #hier für Betrag abs() um das sample schreiben, wenn negative Werte gefiltert werden sollen
+                text += str(sample)    #hier für Betrag abs() um das sample schreiben
                 # EOL
                 text += '\n'
                 # Decimal mark conversion of whole line
@@ -104,14 +104,14 @@ def main (fileLocation):
         signals.append(signal)
         dimensions.append(f.getPhysicalDimension(i))
         print(f.datarecord_duration / f.getSampleFrequency(i))
+        print('adsflkjdfasi')
         stepwidth.append(f.datarecord_duration / f.getSampleFrequency(i))
     # Create .csv
     print('Creation of .csv.')
     print (fileLocation)
     signalsToCsvs(fileLocation, labels, signals, sampleRates, dimensions, stepwidth)
 
-raw_data = ['03bla.EDF']    #hier die Dateinamen eintragen, die transformiert werden sollen
-
+raw_data = ['03bla.EDF']
 for x in raw_data:
-  filepath = 'data/raw/' + x    #TRO: 'data/raw/' + x
+  filepath = 'data/raw/' + x
   main(filepath)
