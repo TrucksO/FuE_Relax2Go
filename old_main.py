@@ -1,4 +1,17 @@
-#!/usr/bin/python3
+import datetime
+import timedelta
+
+date_str = "2 january, 2020"
+
+# format date
+date_obj = datetime.strptime(date_str, "%d %B, %Y")
+
+print("Today's date is: ", date_obj)
+for i in range (1,11):
+    right_now = right_now + timedelta(days = 1)
+    print(right_now)
+
+'''#!/usr/bin/python3
 import numpy as np
 import argparse
 import datetime
@@ -115,3 +128,4 @@ raw_data = ['03bla.EDF']
 for x in raw_data:
   filepath = 'data/raw/' + x
   main(filepath)
+'''
